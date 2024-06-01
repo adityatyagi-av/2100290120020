@@ -28,12 +28,7 @@ const ProductDetails = () => {
 
     return (
         <Card>
-            <CardMedia
-                component="img"
-                height="140"
-                image={`https://via.placeholder.com/140?text=${product.productName}`}
-                alt={product.productName}
-            />
+           
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {product.productName}

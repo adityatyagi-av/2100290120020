@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchProducts } from '../api/fetchData';
-import { Card, CardContent, Typography, Grid, CardMedia, CardActionArea } from '@mui/material';
+import { Card, CardContent, Typography, Grid,  CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const ProductList = ({ categoryname }) => {
@@ -10,7 +10,8 @@ const ProductList = ({ categoryname }) => {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const data = await fetchProducts(categoryname, { top: 10 });
+                
+                const data = await fetchProducts(categoryname, { top: 10,minPrice:1,maxPrice:1000,sortBy:'price',sortOrder:'asc' });
                 setProducts(data.products);
                 setLoading(false);
             } catch (error) {
@@ -31,12 +32,7 @@ const ProductList = ({ categoryname }) => {
                 <Grid item key={product.id} xs={12} sm={6} md={4}>
                     <Card>
                         <CardActionArea component={Link} to={`/categories/${categoryname}/products/${product.id}`}>
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={`https://via.placeholder.com/140?text=${product.productName}`}
-                                alt={product.productName}
-                            />
+                           
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {product.productName}
