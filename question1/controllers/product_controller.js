@@ -1,4 +1,4 @@
-
+import {getProducts, getProductById } from "../services/product_services.js"
 export async function GetProducts(req, res) {
     const { categoryname } = req.params;
     const { top, minPrice, maxPrice, page = 1, sortBy, sortOrder } = req.query;
@@ -22,4 +22,3 @@ export async function GetProductById (req, res) {
     }
 };
 
-module.exports = router;
