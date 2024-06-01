@@ -12,6 +12,7 @@ export async function GetProducts(req, res) {
 };
 
 export async function GetProductById (req, res) {
+
     const { categoryname, productid } = req.params;
 
     try {
